@@ -1,0 +1,15 @@
+# Environnements virtuels
+.venv/
+venv/
+env/
+ENV/
+
+# Caches Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dossiers d'IDE (si vous utilisez VS Code ou PyCharm)
+.vscode/
+.idea/
