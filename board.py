@@ -28,4 +28,4 @@ def afficher_plateau(plateau, joueurs):
             
     print(plat)
 
-afficher_plateau(board, players)
+#afficher_plateau(board, players)
