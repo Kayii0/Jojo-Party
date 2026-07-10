@@ -2,7 +2,7 @@ from player import Joueur
 from board import afficher_plateau
 from dice import lancer_de
 
-board = ["normal", "bonus", "normal", "normal", "malus", "normal", "bonus", "normal", "normal", "malus"]
+board = ["normal", "bonus", "normal", "normal", "malus", "normal", "bonus", "shop", "normal", "normal", "malus"]
 josh = Joueur("Josh")
 players = [josh]
 
