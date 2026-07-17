@@ -13,13 +13,13 @@ def afficher_plateau(plateau, joueurs):
 
     for i in range(nP):
         joueurs_ici = []
-        contenu = f"[{plateau[i]}]"
+        contenu = f"[{'/'.join(joueurs_ici)}]"
         for j in range(nJ):
             if joueurs[j].position == i:
                 joueurs_ici.append(joueurs[j].nom)
         
         if joueurs_ici != []:
-            contenu = f"[{"/".join(joueurs_ici)}]"
+            contenu = f"[{'/'.join(joueurs_ici)}]"
         else:
             contenu = f"[{plateau[i]}]"
         
