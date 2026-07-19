@@ -6,15 +6,23 @@ board = ["normal", "bonus", "normal", "normal", "malus", "normal", "bonus", "sho
 josh = Joueur("Josh")
 players = [josh]
 
-josh.position = 8
-afficher_plateau(board, players)
-jouer = input("Voulez-vous lancez le dé ?")
+josh.position = 0
+jouer = input("Voulez-vous lancer le dé ? (ou tapez 'stop' pour quitter) : ")
 
-if jouer != "":
+while jouer != "stop" and josh.position < len(board) - 1:
+    afficher_plateau(board, players)
+    
     score = lancer_de()
-    print(f"dé = {score} !")
-    players[0].position += score
-    if players[0].position > len(board) - 1:
-        players[0].position = len(board) - 1
+    print(f"\nDé = {score} !")
+    josh.position += score
+    
+    if josh.position >= len(board) - 1:
+        josh.position = len(board) - 1
+        print("Félicitations, vous avez atteint la fin du plateau !")
+        break # A RETENIR ( break sert a sortir de la boucle )
+        
+    afficher_plateau(board, players)
+    jouer = input("Voulez-vous rejouer ? (ou tapez 'stop') : ")
 
+print("\n--- Fin de la partie ---")
 afficher_plateau(board, players)
