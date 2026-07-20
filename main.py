@@ -2,27 +2,41 @@ from player import Joueur
 from board import afficher_plateau
 from dice import lancer_de
 
-board = ["normal", "bonus", "normal", "normal", "malus", "normal", "bonus", "shop", "normal", "normal", "malus"]
+board = ["normal", "bonus", "normal", "normal", "malus", "normal", "bonus", "shop", "normal", "normal", "malus", "FIN"]
 josh = Joueur("Josh")
-players = [josh]
+coco = Joueur("coco")
+kiwi = Joueur("kiwi")
+darsto = Joueur("darsto")
+players = [josh, coco, kiwi, darsto]
 
-josh.position = 0
-jouer = input("Voulez-vous lancer le dé ? (ou tapez 'stop' pour quitter) : ")
+size = len(players)
+partie_en_cours = True
 
-while jouer != "stop" and josh.position < len(board) - 1:
-    afficher_plateau(board, players)
-    
-    score = lancer_de()
-    print(f"\nDé = {score} !")
-    josh.position += score
-    
-    if josh.position >= len(board) - 1:
-        josh.position = len(board) - 1
-        print("Félicitations, vous avez atteint la fin du plateau !")
-        break # A RETENIR ( break sert a sortir de la boucle )
+while partie_en_cours:
+
+    for i in range(size):
+        actuel = players[i]
         
-    afficher_plateau(board, players)
-    jouer = input("Voulez-vous rejouer ? (ou tapez 'stop') : ")
+        jouer = input(f"\nA ton tour {actuel.nom} ! Voulez-vous lancer le dé ? (ou 'stop' pour quitter) : ")
+        
+        if jouer.lower() == 'stop':
+            partie_en_cours = False
+            break  # Sort du 'for'
+
+        afficher_plateau(board, players)
+            
+        score = lancer_de()
+        print(f"Dé = {score} !")
+        actuel.position += score
+            
+        # on verifie si le joueur est sur la dernniere case 
+        if actuel.position >= len(board) - 1:
+            actuel.position = len(board) - 1  
+            print(f"\n🎉 Félicitations {actuel.nom}, tu as atteint la fin du plateau !")
+            partie_en_cours = False
+            break  #  fin de partie ça sort 
+                
+        afficher_plateau(board, players)
 
 print("\n--- Fin de la partie ---")
 afficher_plateau(board, players)
