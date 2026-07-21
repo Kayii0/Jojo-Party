@@ -34,7 +34,10 @@ while partie_en_cours:
             actuel.position = len(board) - 1  
             print(f"\n🎉 Félicitations {actuel.nom}, tu as atteint la fin du plateau !")
             partie_en_cours = False
-            break  #  fin de partie ça sort 
+            break  #  fin de partie ça sort
+
+        if board[actuel.position] == "jeux" :
+            print("Case Jeux !")
                 
         afficher_plateau(board, players)
 
