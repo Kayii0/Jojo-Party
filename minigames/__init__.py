@@ -1,0 +1,1 @@
+from .devine_game import jouer_devine_nombre

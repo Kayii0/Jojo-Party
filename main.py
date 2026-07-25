@@ -1,6 +1,7 @@
 from player import Joueur
 from board import afficher_plateau
 from dice import lancer_de
+from minigames import jouer_devine_nombre
 
 board = ["normal", "bonus", "normal", "normal", "jeux", "normal", "bonus", "shop", "normal", "normal", "jeux", "FIN"]
 josh = Joueur("Josh")
@@ -38,6 +39,8 @@ while partie_en_cours:
 
         if board[actuel.position] == "jeux" :
             print("Case Jeux !")
+            partie = jouer_devine_nombre()
+            gagnant = min(score, key= lambda j: ) ### A terminer
                 
         afficher_plateau(board, players)
 
