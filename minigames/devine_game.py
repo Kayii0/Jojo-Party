@@ -7,4 +7,6 @@ def jouer_devine_nombre(joueurs):
     for joueur in joueurs:
         jdevine = input("Donne un nombre ! sois le plus proche !")
         nbj = int(jdevine)
-        score[joueur] = abs(nbj - nbDeviner)
+        score[joueur] = abs(nbj - nbDeviner) # abs pour tout mettre en positif
+
+    return score
