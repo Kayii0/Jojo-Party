@@ -40,7 +40,7 @@ while partie_en_cours:
         if board[actuel.position] == "jeux" :
             print("Case Jeux !")
             partie = jouer_devine_nombre()
-            gagnant = min(score, key= lambda j: ) ### A terminer
+            gagnant = min(score, key= lambda j: score[j])
                 
         afficher_plateau(board, players)
 
